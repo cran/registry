@@ -21,8 +21,7 @@ function(x, ...) ## remove index function
 print.registry_entry <-
 function(x, ...)
 {
-    x <- lapply(x, paste, collapse = ", ")
-    x <- .functions_to_characters(x)
+    x <- lapply(.labels(x), paste, collapse = ", ")
     writeLines(formatUL(x, label = names(x)))
     invisible(x)
 }

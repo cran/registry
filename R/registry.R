@@ -119,7 +119,7 @@ registry <-
     function(field_name, field, value)
     {
         ## Note we do not check NA entries because this may by set automatically
-        if (!is.function(value) && !is.na(value[1])) {
+        if (is.object(value) || !is.function(value) && !is.na(value[1])) {
             ## check class / list of alternatives, if any
             if (!any(is.na(field$type))) {
                 ## check class
