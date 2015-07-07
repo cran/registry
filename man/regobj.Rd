@@ -16,8 +16,9 @@
 \special{regobj$get_field_names()}
 \special{regobj$set_field(name,
                  type = NA, alternatives = NA, default = NA,
-                 is_mandatory = FALSE, is_modifiable = TRUE, is_key = FALSE,
-                 validity_FUN = NULL, index_FUN = match_ignorecase, \dots)}
+                 is_mandatory = FALSE, is_modifiable = TRUE,
+                 is_key = FALSE, validity_FUN = NULL,
+                 index_FUN = match_ignorecase, \dots)}
 
 \special{regobj$has_entry(key)}
 \special{regobj$get_entry(\dots)}
