@@ -93,7 +93,7 @@ registry <-
             index <-
                 index[sapply(DATA[index],
                         function(i) do.call(FUN,
-                                       c(list(key[index_field],
+                                       c(list(key[[index_field]],
                                               i[[ index_fields[index_field] ]]),
                                          ARGS))
                              )]
@@ -389,7 +389,7 @@ registry <-
         key  <- l[.get_index_fields()]
 
         ## fetch entry index (this also checks if the entry exists)
-        entry_index <- .get_entry_indices(key)
+        entry_index <- .get_entry_indices(key, FUN=match_exact)
 
         ## check if it is unique
         if (length(entry_index) != 1)
