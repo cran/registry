@@ -119,7 +119,7 @@ registry <-
     function(field_name, field, value)
     {
         ## Note we do not check NA entries because this may by set automatically
-        if (is.object(value) || !is.function(value) && !is.na(value[1])) {
+        if (is.object(value) || !is.function(value) && !any(is.na(value))) {
             ## check class / list of alternatives, if any
             if (!any(is.na(field$type))) {
                 ## check class
@@ -194,13 +194,13 @@ registry <-
                  call. = FALSE)
 
         ## possibly, infer type from argment
-        if (!is.na(type) && !(is.character(type)))
+        if (!any(is.na(type)) && !(is.character(type)))
             type <- class(type)
 
         ## check mandatory fields
         if (is.null(is_mandatory))
             is_mandatory <- is_key
-        if (is_mandatory && !is.na(default))
+        if (is_mandatory && !any(is.na(default)))
             stop("Mandatory fields should have no default.", call. = FALSE)
         if (is_key && !is_mandatory)
             stop("Key fields must be mandatory.", call. = FALSE)
